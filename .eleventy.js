@@ -43,6 +43,7 @@ module.exports = function(eleventyConfig) {
             includes: "includes",
             data: "_data"
         },
-        passthroughFileCopy: true
+        passthroughFileCopy: true,
+        pathPrefix: "/mind-garden/"
     }
 }
