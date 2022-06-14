@@ -43,12 +43,40 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com/" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css">
+
+<style>
+    .MathJax {
+      min-width: 0;
+      padding:0.25em;
+      overflow-x:auto;
+      overflow-y: hidden;
+    }
+</style>
+<script>
+    MathJax = {
+      loader: {load: ['[tex]/bussproofs']},
+      tex: {
+        packages: {'[+]': ['bussproofs']},        // extensions to use
+        inlineMath: [ ['$','$'], ['\\(','\\)'] ],  // start/end delimiter pairs for in-line math
+        processEscapes: true,      // use \$ to produce a literal dollar sign
+        processEnvironments: true, // process \begin{xxx}...\end{xxx} outside math mode
+        processRefs: true,         // process \ref{...} outside of math mode
+        tags: 'all'              // or 'none' or 'ams'        
+      }
+    };
+</script>  
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="/mind-garden/assets/style.css">
+
 </head>
 <body>
     <header class="page-header">
         <a href="/mind-garden/" class="page-header__logo" title="Go home">
-            <img src="/mind-garden/assets/avatar.png" alt="" width="48">
+            <div class="image-cropper">
+                <img src="/mind-garden/assets/avatar.png" alt="" width="48">
+            </div>
         </a>
 
         <nav>
