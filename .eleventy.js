@@ -17,7 +17,13 @@ module.exports = function(eleventyConfig) {
                 const parts = match.raw.slice(2,-2).split("|");
                 parts[0] = parts[0].replace(/.(md|markdown)\s?$/i, "");
                 match.text = (parts[1] || parts[0]).trim();
-                match.url = `/mind-garden/notes/${parts[0].toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '')}/`;
+                // match.url = `/mind-garden/notes/${parts[0].toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '')}/`;
+                match.url = `/mind-garden/notes/${parts[0].normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove accents
+                .replace(/([^\w]+|\s+)/g, '-') // Replace space and other characters by hyphen
+                .replace(/\-\-+/g, '-')	// Replaces multiple hyphens by one hyphen
+                .replace(/(^-+|-+$)/g, '') // Remove extra hyphens from beginning or end of the string
+                .toLowerCase()
+                .trim()}/`;
                 // match.url = `/mind-garden/notes/${parts[0].trim()}/`;
             }
         })
