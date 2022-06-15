@@ -25,17 +25,17 @@
 
 <link rel="shortcut icon" href="/mind-garden/assets/favicon.ico" type="image/x-icon">
 
-<title>Home Page • jerem.'s Notes</title>
+<title>Rossby Modes • jerem.'s Notes</title>
 
 <meta name="description" content="">
 
-<meta property="og:title" content="Home Page • jerem.'s Notes">
+<meta property="og:title" content="Rossby Modes • jerem.'s Notes">
 <meta property="og:type" content="article">
-<meta property="og:url" content="jrekier.github.io/mind-garden/notes/">
+<meta property="og:url" content="jrekier.github.io/mind-garden/notes/rossby-modes/">
 <meta property="og:image" content="/mind-garden/assets/avatar.png">
 <meta property="og:description" content="">
 
-<link rel="canonical" href="jrekier.github.io/mind-garden/notes/">
+<link rel="canonical" href="jrekier.github.io/mind-garden/notes/rossby-modes/">
 
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap">
@@ -87,9 +87,45 @@
     </header>
     <main>
         <article>
-    <h1>About these notes</h1>
-<p>This website is an attempt to collect thoughts into a <a href="https://www.mentalnodes.com/a-gardening-guide-for-your-mind">mind garden</a>. It is built with <a href="https://www.11ty.dev/">11ty</a>, using a <a href="https://github.com/binyamin/eleventy-garden">template</a> by <a href="https://twitter.com/binyamingreen">@binyamingreen</a>.</p>
-<p>Here is a link: <a href="/mind-garden/notes/poincare-equation/">poincare-equation</a></p>
+    <h1>Rossby modes</h1>
+<ul>
+<li>the (linearized) momentum equation for the fluid on the surface of the sphere with radius $R$ reads, in components:
+$$
+\begin{aligned}
+\partial_tu^\theta-2\Omega\cos\theta u^\varphi&amp;=-\frac{1}{R}\frac{\partial p}{\partial\theta}~,\\
+\partial_tu^\varphi+2\Omega\cos\theta u^\theta&amp;=-\frac{1}{R\sin\theta}\frac{\partial p}{\partial\varphi}~,
+\end{aligned}
+$$
+where $\Omega$ is the angular velocity of the reference frame (attached to the planet) and $p$ is the <em>reduced pressure</em>.</li>
+<li>the condition of incompressibility, $\mathbf{\nabla}\cdot\mathbf{u}=0$, translates to:
+$$
+\frac{\partial}{\partial\theta}\left(\sin\theta u^\theta\right)+\frac{\partial u^\varphi}{\partial\varphi}=0~.
+$$</li>
+<li>Looking for oscillatory solutions of the form $\mathrm{e}^{i\left(\omega t+m \varphi\right)}$, we may cast the above system in a single autonomous equation:
+$$
+\left(\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\left(\sin\theta u^\theta\right)\right)-m^2-\frac{2m\Omega}{\omega}\sin^2\theta\right)u^\theta=0~,
+$$
+which can be rewritten as:
+$$
+\left(\frac{\partial}{\partial\mu}\left((1-\mu^2)\frac{\partial}{\partial\mu}\right)-\frac{m^2}{1-\mu^2}-\frac{2m\Omega}{\omega}\right)\tilde{u}^\theta=0~.
+$$
+where $\mu=\cos\theta$ and $\tilde{u}^\theta=\sin\theta u^\theta$ denotes the <em>toroidal component</em> of the velocity.</li>
+<li>This corresponds to the <a href="https://en.wikipedia.org/wiki/Associated_Legendre_polynomials"><em>general Legendre equation</em></a> whose solutions are:
+$$
+\tilde{u}^\theta=\mathrm{P}_\ell^m(\cos\theta)~,
+$$
+provided that the frequency satisfies the following dispersion relation:
+$$
+\omega=-\frac{2m\Omega}{\ell(\ell+1)}~.
+$$
+These solutions are called <em>Rossby modes</em></li>
+</ul>
+<hr>
+<h3>References</h3>
+<ul>
+<li><a href="https://doi.org/10.1098/rspa.1965.0051">Longuet-Higgins, M. S. <em>Planetary waves on a rotating sphere. II</em> (1965) ,Proc. R. Soc. Ser. A,284, 40</a></li>
+<li><a href="http://dx.doi.org/10.1007/s11214-021-00790-2">Zaqarashvili et al. <em>Rossby Waves in Astrophysics</em> (2021)</a></li>
+</ul>
 
 </article>
 <hr>
