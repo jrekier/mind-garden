@@ -1,5 +1,5 @@
 ---
-title: Home page
+title: First note
 permalink: "/notes/"
 ---
 # About these notes
